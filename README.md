@@ -3,7 +3,6 @@ This dataset contains abdominal MRI series for 190 patients, including 134 males
 
 ## Series Types
 | Coronal Precontrast Fat Suppressed T1w(24) | Coronal Late Dynamic T1w(6)     | Venous Subtraction(29)  | Anythingelse(1)    | Axial T2w(9)   |
-|--------------------------------------------|---------------------------------|-------------------------|--------------------|----------------|
 | Coronal Transitional/ Hepatocyte T1w(13)   | Axial Late Dynamic T1w(16)      | Portal Venous T1w(23)   | Arterial T1w(2)    | Fat Only(11)   |
 | Coronal Steady State Free Precession(28)   | Proton Density Fat Fraction(21) | Coronal In Phase(15)    | Axial In Phase(14) | Axial ADC(0)   |
 | Axial Precontrast Fat Suppressed T1w(25)   | Water Density Fat Fraction(22)  | Early Arterial T1w(3)   | Coronal T2w(7)     | Localizers(17) |
