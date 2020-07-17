@@ -2,7 +2,7 @@
 This dataset contains abdominal MRI series for 190 patients, including 134 males and 56 females. There are 190 exams (3717 series) in total. Each series was annotated by two radiologists in consensus with regard to series type. We have annotated 30 series types (details below). This dataset was collected at Duke University Medical Center. 
 
 ## Series Types
-We provide all the 30 series types in the following table (in each cell the format is Series Type(Numeric Label)):
+We provide all the 30 series types in the following table. In each cell the format is *Series Type*(*Numeric Label*).
 |  |  |   |   |  |
 |--------------------------------------------|---------------------------------|-------------------------|--------------------|----------------|
 | Coronal Precontrast Fat Suppressed T1w(24) | Coronal Late Dynamic T1w(6)     | Venous Subtraction(29)  | Anythingelse(1)    | Axial T2w(9)   |
