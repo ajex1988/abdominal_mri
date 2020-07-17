@@ -12,7 +12,16 @@ We provide all the 30 series types in the following table. In each cell the form
 | Axial Transitional/ Hepatocyte T1w(12)     | Axial Opposed Phase(19)         | Late Arterial T1w(4)    | Axial DWI(8)       | MRCP(18)       |
 | Axial Steady State Free Precession(27)     | Coronal Opposed Phase(20)       | Arterial Subtraction(5) | Coronal DWI(10)    | R2*(26)        |
 ## Dicom
+We provide the dicom file for each slice of the series. In Python, **pydicom** can be used to extract useful labels and the MRI data:
+'''
+import pydicom as dcm
+dcm_file = 'path/to/dcm_file'
+ds = dcm.dcmread(dcm_file)
 
+slice = ds.pixel_array
+...
+
+'''
 ## Annotation
 
 ## Download
