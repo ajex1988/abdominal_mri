@@ -15,6 +15,7 @@ We provide all the 30 series types in the following table. In each cell the form
 We provide the dicom file for each slice of the series. In Python, **pydicom** can be used to extract useful labels and the MRI data:
 ```
 import pydicom as dcm
+
 dcm_file = 'path/to/dcm_file'
 ds = dcm.dcmread(dcm_file)
 
