@@ -2,12 +2,13 @@
 This dataset contains abdominal MRI series for 190 patients, including 134 males and 56 females. There are 190 exams (3717 series) in total. Each series was annotated by two radiologists in consensus with regard to series type. We have annotated 30 series types (details below). This dataset was collected at Duke University Medical Center. 
 
 ## Series Types
-|                  | Feather融合 | 均值坐标融合 | 增强视觉观感图像融合 |
-|------------------|-------------|--------------|----------------------|
-| 场景A/峰值信噪比 | 28.9        | 29.2         | 32.4                 |
-| 场景B/峰值信噪比 | 36.1        | 35.8         | 38.0                 |
-| 场景A/NIQE       | 6.7         | 5.5          | 4.2                  |
-| 场景B/NIQE       | 4.4         | 4.0          | 3.9                  |
+| Coronal Precontrast Fat Suppressed T1w(24) | Coronal Late Dynamic T1w(6)     | Venous Subtraction(29)  | Anythingelse(1)    | Axial T2w(9)   |
+|--------------------------------------------|---------------------------------|-------------------------|--------------------|----------------|
+| Coronal Transitional/ Hepatocyte T1w(13)   | Axial Late Dynamic T1w(16)      | Portal Venous T1w(23)   | Arterial T1w(2)    | Fat Only(11)   |
+| Coronal Steady State Free Precession(28)   | Proton Density Fat Fraction(21) | Coronal In Phase(15)    | Axial In Phase(14) | Axial ADC(0)   |
+| Axial Precontrast Fat Suppressed T1w(25)   | Water Density Fat Fraction(22)  | Early Arterial T1w(3)   | Coronal T2w(7)     | Localizers(17) |
+| Axial Transitional/ Hepatocyte T1w(12)     | Axial Opposed Phase(19)         | Late Arterial T1w(4)    | Axial DWI(8)       | MRCP(18)       |
+| Axial Steady State Free Precession(27)     | Coronal Opposed Phase(20)       | Arterial Subtraction(5) | Coronal DWI(10)    | R2*(26)        |
 ## Dicom
 
 ## Annotation
