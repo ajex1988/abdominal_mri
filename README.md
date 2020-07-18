@@ -24,7 +24,7 @@ slice = ds.pixel_array
 
 ```
 ## Annotation
-We provide several different formats of the annotation. In *demo.py* we demonstrate how to load the annotation of differents formats.
+We provide several different formats of the annotation. In *demo.py* we demonstrate how to load different formats of annotation.
 
 ## Download
 The dataset can be download from **here**(coming soon).
