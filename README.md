@@ -38,4 +38,5 @@ IEEE Transactions on Pattern Analysis and Machine Intelligence.
 ```
 
 
-## Team
+## Contact
+Please contact Zhe Zhu(zhe.zhu@duke.edu) if you have any question about this dataset.
