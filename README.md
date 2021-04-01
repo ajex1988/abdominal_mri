@@ -1,6 +1,6 @@
 # Duke Abdominal MRI Series Dataset
-This dataset contains abdominal MRI series for 190 patients, including 134 males and 56 females. There are 190 exams (3717 series) in total. Each series was annotated by two radiologists in consensus with regard to series type. We have annotated 30 series types (details below). This dataset was collected at Duke University Medical Center. 
-
+This dataset contains abdominal MRI series for 105 patients, who underwent MRI ex-amination  in  Duke  University  Hospital.   For  each  patient  there  is  exactly  1examination, and for each examination there are tens of series.  In each series,there are also tens of MRI slices (stored as dicom format file).  An illustration of the hierarchy of the dataset is shown in the figure below. 
+![Dataset Hierarchy](images/DukeAbdominalDatasetStructure.png)
 ## Series Types
 We provide all the 30 series types in the following table. In each cell the format is *series type*(*numeric label*).
 |  |  |   |   |  |
@@ -11,7 +11,12 @@ We provide all the 30 series types in the following table. In each cell the form
 | Axial Precontrast Fat Suppressed T1w(25)   | Water Density Fat Fraction(22)  | Early Arterial T1w(3)   | Coronal T2w(7)     | Localizers(17) |
 | Axial Transitional/ Hepatocyte T1w(12)     | Axial Opposed Phase(19)         | Late Arterial T1w(4)    | Axial DWI(8)       | MRCP(18)       |
 | Axial Steady State Free Precession(27)     | Coronal Opposed Phase(20)       | Arterial Subtraction(5) | Coronal DWI(10)    | R2*(26)        |
-## Dicom
+## Training a abdominal series classifier using this dataset
+###Dependencies
+* tensorflow
+* opencv-python
+* pydicom
+
 We provide the dicom file for each slice of the series. In Python, **pydicom** can be used to extract useful labels and the MRI data:
 ```
 import pydicom as dcm
