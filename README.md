@@ -1,5 +1,5 @@
 # Duke Abdominal MRI Series Dataset
-This dataset contains abdominal MRI series for 105 patients, who underwent MRI ex-amination  in  Duke  University  Hospital.   For  each  patient  there  is  exactly  1examination, and for each examination there are tens of series.  In each series,there are also tens of MRI slices (stored as dicom format file).  An illustration of the hierarchy of the dataset is shown in the figure below. 
+This dataset contains abdominal MRI series for 105 patients, who underwent MRI examination  at  Duke  University  Hospital.   For  each  patient  there  is  exactly  1examination, and for each examination there are tens of series.  In each series,there are also tens of MRI slices (stored as dicom format file).  An illustration of the hierarchy of the dataset is shown in the figure below. 
 ![Dataset Hierarchy](images/DukeAbdominalDatasetStructure.png)
 ## Series Types
 We provide all the 30 series types in the following table. In each cell the format is *series type*(*numeric label*).
@@ -11,11 +11,28 @@ We provide all the 30 series types in the following table. In each cell the form
 | Axial Precontrast Fat Suppressed T1w(25)   | Water Density Fat Fraction(22)  | Early Arterial T1w(3)   | Coronal T2w(7)     | Localizers(17) |
 | Axial Transitional/ Hepatocyte T1w(12)     | Axial Opposed Phase(19)         | Late Arterial T1w(4)    | Axial DWI(8)       | MRCP(18)       |
 | Axial Steady State Free Precession(27)     | Coronal Opposed Phase(20)       | Arterial Subtraction(5) | Coronal DWI(10)    | R2*(26)        |
-## Training a abdominal series classifier using this dataset
+
+## Deidentification
+This dataset has been deidentified before publication, which means it contains no PHI.
+
+## Dataset Tutorial
 ###Dependencies
 * tensorflow
 * opencv-python
 * pydicom
+The version of the libraries we tested are: tensorflow 1.15.0, opencv 4.2.0.32 and pydicom 1.4.2. You can install those by:
+```
+pip install tensorflow-gpu==1.15 
+pip install opencv-python==4.2.0.32
+pip install pydicom==1.4.2
+```
+### Classifying an anonymized slice using pretrained Google Inception 2D model.
+Download the pretrained model from [here](http://google.com). Unzip the file to the current directory (suppose the unzipped folder name is "0621").
+Here is an anonymized abdominal liver MRI:
+![test_img](test_mri.png)
+Then you can run inception_2d_test.py and the script will output:
+### Training a abdominal series classifier using this dataset
+#### Preparing the tfrecord
 
 We provide the dicom file for each slice of the series. In Python, **pydicom** can be used to extract useful labels and the MRI data:
 ```
