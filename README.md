@@ -27,27 +27,42 @@ pip install opencv-python==4.2.0.32
 pip install pydicom==1.4.2
 ```
 ### Classifying an anonymized slice using pretrained Google Inception 2D model.
-Download the pretrained model from [here](http://google.com). Unzip the file to the current directory (suppose the unzipped folder name is "0621").
-Here is an anonymized abdominal liver MRI:
+A pretrained model (checkpoint) is in the 0621 directory.
+The test image is an anonymized abdominal liver MRI:
 ![test_img](test_mri.png)
+
 Then you can run inception_2d_test.py and the script will output:
+```
+Predicted Series Type: arterial
+Probability: 0.718601822853
+```
 ### Training a abdominal series classifier using this dataset
+Since the whole dataset is about 20GB, loading it to the memory is infeasible for a typical PC. We train the model using tensorflow *Estimator*
+and convert the images and labels into tfrecord format, so that during training when a batch is needed it can be loaded efficiently. Note that for 
+demonstration purpose we only adopt a 2D model for simplicity.
 #### Preparing the tfrecord
+First, you need to change to directories in the *construct_tfrecord_2d.py*. In line 83 change *dataset_folder* to the directory where you
+put the dataset, and in line 85 
+change the *output_folder* to the directory where you would like the generated file to store. After these two values are set, you can just
+run the script.
 
-We provide the dicom file for each slice of the series. In Python, **pydicom** can be used to extract useful labels and the MRI data:
+#### Training an abdominal series classifier
+Run the *inception_2d_train.py* with three arguments: *tfrecord_folder*, *logdir* and *steps*. *tfrecord_folder* is the directory where you put your 
+generated tfrecord, *logdir* is the place where you want to save the training information (models, losses, etc), and *steps* is the number of steps in
+training process. Here is an example:
 ```
-import pydicom as dcm
-
-dcm_file = 'path/to/dcm_file'
-ds = dcm.dcmread(dcm_file)
-
-slice = ds.pixel_array
+python inception_2d_train.py /mnt/sdc/dataset/tf/2d /mnt/sdc/dataset/tmp/2d_inception_model 50000
+```
+Then you should see something like this:
+```
+INFO:tensorflow:Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+INFO:tensorflow:Saving checkpoints for 0 into /mnt/sdc/dataset/tmp/2d_inception_model/model.ckpt.
+INFO:tensorflow:loss = 3.7707667, step = 1
+INFO:tensorflow:accuracy = 0.03125, global_step = 1, loss = 3.7707667, my_acc = 0.03125
 ...
-
 ```
-## Annotation
-We provide several different formats of the annotation. In *demo.py* we demonstrate how to load different formats of annotation.
-
+Typically you need to wait a few hours until the training stops.
 ## Download
 The dataset can be download from **here**(coming soon).
 

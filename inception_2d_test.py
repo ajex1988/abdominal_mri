@@ -53,6 +53,7 @@ def run_test():
     print("Classifying the test_mri.png using a pretrained Google Inception 2D model.")
     # Test image file
     img_file = 'test_mri.png'
+    label_name_file = 'label_name_map.txt'
     # Load the gray-scale image. We use the cv2.IMREAD_GRAYSCALE tag to force 1-channel load
     # since our trained model takes 1-channel image as input
     mri_img = cv2.imread(img_file, cv2.IMREAD_GRAYSCALE)
@@ -78,13 +79,20 @@ def run_test():
             'n_classes': n_classes
         }
     )
+    with open(label_name_file,'r') as reader:
+        label_name_list = reader.readlines()
+    print(label_name_list)
+    label_name_map = {}
+    for label_name in label_name_list:
+        series_name,label = label_name.split()
+        label_name_map[int(label)] = series_name
     predictions = classifier.predict(input_fn=my_input_fn)
     for result in predictions:
-        print(result)
-        prediction_file = 'test_mri_predicted.txt'
-        with open(prediction_file, 'w') as f:
-            f.write(result['prob'])
-
+        pred_label = np.argmax(result['prob'])
+        pred_prob = result['prob'].max()
+        pred_series_name = label_name_map[pred_label]
+        print("Predicted Series Type: "+pred_series_name)
+        print("Probability: {0}".format(pred_prob))
 
 if __name__ == "__main__":
     run_test()
